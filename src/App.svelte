@@ -1,47 +1,93 @@
-<script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
-</script>
+<header class="header">
+  <a href="/" class="header-title">Svelte EC</a>
+  <nav>
+    <ul class="header-link">
+      <li>ようこそゲストさん</li>
+      <li>
+        <a href="/cart">カート (0)</a>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-<main>
-  <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+<article class="product">
+  <div class="product-main">
+    <div class="image-container">
+      <img src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png" alt="『Svelte Guide』表紙">
+    </div>
+    <div>
+      <h2>Svelte Guide</h2>
+      <dl>
+        <dt>価格</dt>
+        <dd>3,500円</dd>
+      </dl>
+      <div>
+        <button>カートに入れる</button>
+      </div>
+    </div>
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
-</main>
+  <footer>
+    <h3>関連商品</h3>
+    <ul>
+      <li><a href="/products/react-book">React Book</a> - 3,500円</li>
+      <li><a href="/products/vue-book">Vue Book</a> - 3,500円</li>
+      <li><a href="/products/angular-book">Angular Book</a> - 3,500円</li>
+    </ul>
+  </footer>
+</article>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 800px;
+    height: 50px;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+
+  .header-title {
+    font-weight: bold;
   }
-  .read-the-docs {
-    color: #888;
+  
+  .header-link {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .product {
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 15px;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .product-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
   }
 </style>
