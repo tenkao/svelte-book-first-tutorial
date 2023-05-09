@@ -1,4 +1,11 @@
 <script>
+  // 商品詳細の変数
+  let product = {
+    id: 'svelte-book',
+    name: 'Svelte Guide',
+    price: 3500,
+  }
+
   // 関連商品の配列
   let relatedProducts = [
     { id: 'react-book', name: 'React Book', price: 3500 },
@@ -30,17 +37,17 @@
 <article class="product">
   <div class="product-main">
     <div class="image-container">
-      <img src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png" alt="『Svelte Guide』表紙">
+      <img src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png" alt="『{product.name}』表紙">
     </div>
     <div>
-      <h2>Svelte Guide</h2>
+      <h2>{product.name}</h2>
       <dl>
         <dt>価格</dt>
-        <dd>3,500円</dd>
+        <dd>{product.price}円</dd>
       </dl>
       <div>
-        {#if !cart.includes('svelte-book')}
-          <button on:click={() => addToCart('svelte-book')}>カートに入れる</button>
+        {#if !cart.includes(product.id)}
+          <button on:click={() => addToCart(product.id)}>カートに入れる</button>
         {:else}
           <button disabled>カート追加済み</button>
         {/if}
