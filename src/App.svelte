@@ -1,3 +1,13 @@
+<script>
+  // カートに入っている商品IDの配列
+  let cart = []
+
+  // カートに商品を追加する関数
+  function addToCart(productId) {
+    cart = [...cart, productId]
+  }
+</script>
+
 <header class="header">
   <a href="/" class="header-title">Svelte EC</a>
   <nav>
@@ -22,7 +32,11 @@
         <dd>3,500円</dd>
       </dl>
       <div>
-        <button>カートに入れる</button>
+        {#if !cart.includes('svelte-book')}
+          <button on:click={() => addToCart('svelte-book')}>カートに入れる</button>
+        {:else}
+          <button disabled>カート追加済み</button>
+        {/if}
       </div>
     </div>
   </div>
